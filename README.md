@@ -1,6 +1,7 @@
 # portscanner
 Yet another port scanner for the security communuity
 
+```
 Usage: portscanner.py [options]
 example: python3 portscanner.py -T 127.0.0.1
 example: python3 portscanner.py -T www.example.com -T 127.0.0.1
@@ -40,3 +41,4 @@ Options:
                         Ports to scan. Can be "basic" (1-1024), "all"
                         (1-65536), or a comma-separated list of ports.
                         Defaults to "basic".
+```
