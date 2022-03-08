@@ -35,7 +35,8 @@ Options:
     Information about the target(s)
 
     -T TARGETS, --targets=TARGETS
-                        *REQUIRED* The targets you would like to scan. Can be                        a domain, IP address, range of IP addresses, or CIDR
+                        *REQUIRED* The targets you would like to scan. Can be
+                        a domain, IP address, range of IP addresses, or CIDR
                         range.
     -p PORTS, --ports=PORTS
                         Ports to scan. Can be "basic" (1-1024), "all"
