@@ -110,7 +110,7 @@ class Probe():
 							return 0
 		
 			if self.scan == 'udp':
-				self.result = sr1(IP(dst=self.ip)/UDP(dport=port), timeout=self.options.timeout, verbose=0)
+				self.result = sr1(IP(dst=self.ip)/UDP(dport=self.port), timeout=self.options.timeout, verbose=0)
 				if self.result == None:
 					self.recheck = True
 				else:
@@ -127,9 +127,10 @@ class Probe():
 			if self.recheck:
 				self.retryCt = self.retryCt - 1
 				if self.retryCt > 0:
-					self.run()
+					return self.run()
 				else:
 					self.recheck = False
+					return 0  # Return filtered status when retries exhausted
 
 		except Exception as ex:
 			self.utils.msg('Error testing port '+str(self.port)+'! '+str(ex), 'error')

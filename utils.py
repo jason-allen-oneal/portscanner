@@ -2,6 +2,7 @@
 
 from sys import platform
 from colorama import Fore, Style
+from urllib.parse import urlparse
 
 class Utils:
 	def msg(self, text, level):
@@ -71,7 +72,7 @@ class Utils:
 				ips.append(self.bin2ip(ipPrefix+self.dec2bin(i, (32-subnet))))
 			return ips
 	
-	def urlValidator(x):
+	def urlValidator(self, x):
 		try:
 			result = urlparse(x)
 			return all([result.scheme, result.netloc])

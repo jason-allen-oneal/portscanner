@@ -38,6 +38,11 @@ def optionControl(utils):
 	if options.scan is None:
 		options.scan = 'syn'
 	
+	# Convert numeric options to integers
+	options.threads = int(options.threads)
+	options.timeout = int(options.timeout)
+	options.retries = int(options.retries)
+	
 	if options.targets is None:
 		parser.print_help()
 		exit(1)
@@ -104,8 +109,10 @@ def main():
 			sys.exit(1)
 		
 		utils.msg('Scan completed in %d seconds.' % (time.time() - startTime), 'info')
+	
+	if options.write is not None:
 		sys.stdout.close()
-		exit(0)
+	exit(0)
 
 if __name__ == '__main__':
 	main()
